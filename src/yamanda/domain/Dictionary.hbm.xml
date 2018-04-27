@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="yamanda.domain.Dictionary" table="t_dictionary">
+		<id name="did" column="did">
+			<!-- 主键自增长必须是int类型，现在是string类型，可以写increment -->
+			<generator class="increment"></generator>
+		</id>
+		<property name="dname" column="dname"></property>
+		
+		
+	
+	</class>
+</hibernate-mapping>

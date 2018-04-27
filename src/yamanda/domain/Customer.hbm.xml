@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="yamanda.domain.Customer" table="t_customer">
+		<id name="cid" column="cid">
+			<generator class="native"></generator>
+		</id>
+		<property name="cust_name" column="cust_name"></property>
+		<property name="cust_level" column="cust_level"></property>
+		<property name="cust_source" column="cust_source"></property>
+		<property name="cust_phone" column="cust_phone"></property>
+		<property name="cust_mobile" column="cust_mobile"></property>
+		<!-- 表示客户中的所有联系人 -->
+		<set name="setLinkMan" inverse="true" cascade="delete">
+			<key column="clid"></key>  <!-- 表示外键 -->
+			<one-to-many class="yamanda.domain.LinkMan"/>
+		</set>
+		<set name="customerVisitSet" inverse="true" cascade="delete">
+			<key column="cvid"></key>  <!-- 表示外键 -->
+			<one-to-many class="yamanda.domain.Visit"/>
+		</set>
+		<many-to-one name="dictionary" class="yamanda.domain.Dictionary" column="cdid"></many-to-one>
+	</class>
+</hibernate-mapping>
